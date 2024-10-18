@@ -172,7 +172,7 @@ extends:
                         gitHubToken: $(github--pat--vs-mobiletools-engineering-service2)
                         skipAndroidImages: true
                         skipAndroidSdks: true
-                        installDefaultAndroidApi: true
+                        installDefaultAndroidApi: false
 
       - ${{ if eq(variables['System.TeamProject'], 'devdiv') }}:                           # Sign only using the private server   
         - template: /eng/pipelines/common/sign.yml@self                                 

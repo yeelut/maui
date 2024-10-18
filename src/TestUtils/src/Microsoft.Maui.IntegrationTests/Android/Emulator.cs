@@ -7,7 +7,7 @@ namespace Microsoft.Maui.IntegrationTests.Android
 		readonly string SdkManagerTool = Path.Combine(TestEnvironment.GetAndroidCommandLineToolsPath(), TestEnvironment.IsWindows ? "sdkmanager.bat" : "sdkmanager");
 		readonly string EmulatorTool = Path.Combine(TestEnvironment.GetAndroidSdkPath(), "emulator", "emulator");
 
-		public int ApiLevel { get; set; } = 30;
+		public int ApiLevel { get; set; } = 35;
 		public string Abi { get; set; } = "x86_64";
 		public string ImageType { get; set; } = "google_apis_playstore";
 		public string DeviceType { get; set; } = "pixel_5";

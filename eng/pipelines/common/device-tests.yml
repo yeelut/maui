@@ -3,9 +3,9 @@ parameters:
   iosPool: { }
   catalystPool: { }
   windowsPool: { }
-  androidApiLevels: [ 33 ]
+  androidApiLevels: [ 35 ]
   iosVersions: [ 'latest' ]
-  iosDeviceVersions: [ '15' ]
+  iosDeviceVersions: [ '18' ]
   catalystVersions: [ 'latest' ]
   provisionatorChannel: 'latest'
   agentPoolAccessToken: ''

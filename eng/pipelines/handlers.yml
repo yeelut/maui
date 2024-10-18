@@ -106,15 +106,15 @@ parameters:
     - name: $(androidTestsVmPool)
       vmImage: $(androidTestsVmImage)
       demands:
-        - macOS.Name -equals Sonoma
-        - macOS.Architecture -equals x64
+        - Agent.OSVersion -equals 14.5
+        - Agent.OSArchitecture -equals X64
       testName: RunOnAndroid
       artifact: templates-run-android
-    - name: $(iosTestsVmPool)
-      vmImage: $(iosTestsVmImage)
+    - name: $(iosDeviceTestsVmPool)
+      vmImage: $(iosDeviceTestsVmImage)
       demands:
-        - macOS.Name -equals Sonoma
-        - macOS.Architecture -equals x64
+        - Agent.OSVersion -equals 14.5
+        - Agent.OSArchitecture -equals ARM64
       testName: RunOniOS
       artifact: templates-run-ios
 
@@ -160,8 +160,8 @@ stages:
               name: ${{ BuildPlatform.poolName }}
               vmImage: ${{ BuildPlatform.vmImage }}
               demands:
-                - macOS.Name -equals Sonoma
-                - macOS.Architecture -equals x64
+                - Agent.OSVersion -equals 14.5
+                - Agent.OSArchitecture -equals X64
             steps:
               - template: common/provision.yml
                 parameters:
@@ -205,8 +205,8 @@ stages:
             name: ${{ PackPlatform.poolName }}
             vmImage: ${{ PackPlatform.vmImage }}
             demands:
-              - macOS.Name -equals Sonoma
-              - macOS.Architecture -equals x64
+              - Agent.OSVersion -equals 14.5
+              - Agent.OSArchitecture -equals X64
           variables:
             - name: _buildScript
               value: $(Build.SourcesDirectory)/build.cmd -ci
@@ -239,7 +239,7 @@ stages:
                       gitHubToken: $(github--pat--vs-mobiletools-engineering-service2)
                       skipAndroidSdks: true
                       skipAndroidImages: true
-                      installDefaultAndroidApi: true
+                      installDefaultAndroidApi: false
 
   - stage: samples_net
     displayName: Test .NET MAUI Samples
@@ -255,8 +255,8 @@ stages:
             name: ${{ BuildPlatform.poolName }}
             vmImage: ${{ BuildPlatform.vmImage }}
             demands:
-              - macOS.Name -equals Sonoma
-              - macOS.Architecture -equals x64
+              - Agent.OSVersion -equals 14.5
+              - Agent.OSArchitecture -equals X64
           steps:
             - template: common/provision.yml
               parameters:

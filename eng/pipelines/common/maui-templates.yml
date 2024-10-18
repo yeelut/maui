@@ -58,8 +58,7 @@ jobs:
       name: $(POOL_NAME)
       vmImage: $(POOL_VIMAGE)
       demands:
-        - macOS.Name -equals Sonoma
-        - macOS.Architecture -equals x64
+        - Agent.OSVersion -equals 14.5
     steps:
 
     - ${{ each step in parameters.prepareSteps }}:
@@ -200,7 +199,7 @@ jobs:
         displayName: Reset iOS simulators
         # TODO: pass properly device type/version from top-level yml
         env:
-          IOS_TEST_DEVICE: ios-simulator-64_17.2
+          IOS_TEST_DEVICE: ios-simulator-64_18.0
 
     - pwsh: ./build.ps1 --target=dotnet-integration-build --verbosity=diagnostic
       displayName: Build Microsoft.Maui.IntegrationTests
@@ -211,7 +210,7 @@ jobs:
       # TODO: pass properly device type/version from top-level yml
       ${{ if eq(RunPlatform.testName, 'RunOniOS') }}:
         env:
-            IOS_TEST_DEVICE: ios-simulator-64_17.2
+            IOS_TEST_DEVICE: ios-simulator-64_18.0
 
     - ${{ if eq(RunPlatform.testName, 'RunOniOS') }}:
       - pwsh: ./build.ps1 --target=Cleanup -Script eng/devices/ios.cake ---results="$(TestResultsDirectory)" ${{ parameters.cakeArgs }}

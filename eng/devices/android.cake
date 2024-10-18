@@ -2,7 +2,7 @@
 #addin nuget:?package=Cake.Android.AvdManager&version=2.2.0
 #load "./uitests-shared.cake"
 
-const int DefaultApiLevel = 30;
+const int DefaultApiLevel = 35;
 
 Information("Local Dotnet: {0}", localDotnet);
 
@@ -615,7 +615,11 @@ void InstallApk(string testApp, string testAppPackageName, string testResultsDir
 		SetEnvironmentVariable("DEVICE_UDID", DEVICE_UDID);
 		//this needs to be translated to android 10/11 for appium
 		var realApi = "";
-		if (DEVICE_VERSION == "34ß")
+		if (DEVICE_VERSION == "35")
+		{
+			realApi = "15";
+		}
+		if (DEVICE_VERSION == "34")
 		{
 			realApi = "14";
 		}

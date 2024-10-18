@@ -106,8 +106,8 @@ parameters:
     - name: $(androidTestsVmPool)
       vmImage: $(androidTestsVmImage)
       demands:
-        - Agent.OSVersion -equals 14.5
-        - Agent.OSArchitecture -equals X64
+        - macOS.Name -equals Sonoma
+        - macOS.Architecture -equals x64
       testName: RunOnAndroid
       artifact: templates-run-android
     - name: $(iosDeviceTestsVmPool)
@@ -160,8 +160,8 @@ stages:
               name: ${{ BuildPlatform.poolName }}
               vmImage: ${{ BuildPlatform.vmImage }}
               demands:
-                - Agent.OSVersion -equals 14.5
-                - Agent.OSArchitecture -equals X64
+                - macOS.Name -equals Sonoma
+                - macOS.Architecture -equals x64
             steps:
               - template: common/provision.yml
                 parameters:
@@ -205,8 +205,8 @@ stages:
             name: ${{ PackPlatform.poolName }}
             vmImage: ${{ PackPlatform.vmImage }}
             demands:
-              - Agent.OSVersion -equals 14.5
-              - Agent.OSArchitecture -equals X64
+              - macOS.Name -equals Sonoma
+              - macOS.Architecture -equals x64
           variables:
             - name: _buildScript
               value: $(Build.SourcesDirectory)/build.cmd -ci
@@ -255,8 +255,8 @@ stages:
             name: ${{ BuildPlatform.poolName }}
             vmImage: ${{ BuildPlatform.vmImage }}
             demands:
-              - Agent.OSVersion -equals 14.5
-              - Agent.OSArchitecture -equals X64
+              - macOS.Name -equals Sonoma
+              - macOS.Architecture -equals x64
           steps:
             - template: common/provision.yml
               parameters:

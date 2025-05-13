@@ -1,12 +1,12 @@
-using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Maui.Hosting;
 using OpenTelemetry;
 using OpenTelemetry.Logs;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Trace;
-using System.Text.RegularExpressions;
+using System.Diagnostics;
 
 namespace Microsoft.Extensions.Hosting;
 
@@ -17,6 +17,9 @@ public static class Extensions
 {
     public static TBuilder AddServiceDefaults<TBuilder>(this TBuilder builder) where TBuilder : IHostApplicationBuilder
     {
+		// Enables .NET MAUI console output in the .NET Aspire dashboard Console tab
+		Trace.Listeners.Add(new ConsoleTraceListener());
+		
         builder.ConfigureOpenTelemetry();
 
         builder.Services.AddServiceDiscovery();

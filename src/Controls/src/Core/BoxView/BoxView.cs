@@ -6,7 +6,7 @@ using Microsoft.Maui.Graphics;
 
 namespace Microsoft.Maui.Controls
 {
-	/// <summary>A <see cref="T:Microsoft.Maui.Controls.View"/> used to draw a solid colored rectangle.</summary>
+	/// <summary>A <see cref="Microsoft.Maui.Controls.View"/> used to draw a solid colored rectangle.</summary>
 	public partial class BoxView : View, IColorElement, ICornerElement, IElementConfiguration<BoxView>, IShapeView, IShape
 	{
 		/// <summary>Bindable property for <see cref="Color"/>.</summary>

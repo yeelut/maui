@@ -13,10 +13,10 @@
     <SignAssembly>false</SignAssembly>
     <MauiRootDirectory>$(MSBuildThisFileDirectory)</MauiRootDirectory>
     <MauiSrcDirectory>$(MSBuildThisFileDirectory)src/</MauiSrcDirectory>
-    <IncludeCurrentTfms>true</IncludeCurrentTfms>
-    <IncludePreviousTfms>false</IncludePreviousTfms>
-    <IncludePreviousTfmsEssentials>false</IncludePreviousTfmsEssentials>
-    <IncludePreviousTfmsGraphics>false</IncludePreviousTfmsGraphics>
+    <IncludeCurrentTfms>false</IncludeCurrentTfms>
+    <IncludePreviousTfms>true</IncludePreviousTfms>
+    <IncludePreviousTfmsEssentials>true</IncludePreviousTfmsEssentials>
+    <IncludePreviousTfmsGraphics>true</IncludePreviousTfmsGraphics>
   </PropertyGroup>
 
   <PropertyGroup>
